@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dealer Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, {{ dealer_name }}</h1>
+        <div class="options">
+            <a href="{{ url_for('dealer_orders') }}" class="btn">Previous & Ongoing Orders</a>
+            <a href="{{ url_for('list_products') }}" class="btn">List Products</a>
+            <a href="{{ url_for('index') }}" class="btn logout">Logout</a>
+        </div>
+    </div>
+</body>
+</html>

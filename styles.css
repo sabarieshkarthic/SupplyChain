@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 80%;
+    margin: 50px auto;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+input, select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.message {
+    margin-top: 20px;
+    color: #e74c3c;
+}
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.product-table th, .product-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.product-table th {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.order-list {
+    list-style: none;
+    margin: 20px 0;
+}
+
+.order-btn {
+    background-color: #2ecc71;
+    margin: 5px 0;
+    width: 100%;
+}
+
+.order-btn:hover {
+    background-color: #27ae60;
+}
+
+.logout {
+    background-color: #e74c3c;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.logout:hover {
+    background-color: #c0392b;
+}
