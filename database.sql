@@ -1,8 +1,6 @@
--- Create database
 CREATE DATABASE scm;
 USE scm;
 
--- Create tables
 CREATE TABLE Suppliers (
     SupplierID INT AUTO_INCREMENT PRIMARY KEY,
     SupplierName VARCHAR(100),
@@ -131,7 +129,6 @@ INSERT INTO Suppliers (SupplierName, Location, ContactInfo, Latitude, Longitude)
 ('Kolkata Trade Corp', 'Kolkata', 'contact@kolkatatrade.com', 22.5800, 88.3700),
 ('East Star Suppliers', 'Kolkata', 'contact@eaststar.com', 22.5850, 88.3750);
 
--- Insert sample data for Distribution Centers
 INSERT INTO DistributionCenters (CenterName, Location, ContactInfo, Latitude, Longitude) VALUES
 ('Mumbai Logistics Hub', 'Mumbai', 'contact@mumbailogistics.com', 19.1000, 72.8900),
 ('Delhi Cargo Point', 'Delhi', 'contact@delhicargo.com', 28.7200, 77.1200),
@@ -139,7 +136,6 @@ INSERT INTO DistributionCenters (CenterName, Location, ContactInfo, Latitude, Lo
 ('Chennai Supply Chain Hub', 'Chennai', 'contact@chennaisupply.com', 13.1050, 80.2850),
 ('Kolkata Distribution Point', 'Kolkata', 'contact@kolkatadist.com', 22.5950, 88.3800);
 
--- Insert sample data for Dealers
 INSERT INTO Dealers (DealerName, Address, ContactInfo, Latitude, Longitude, Password) VALUES
 ('FastElectronics Mumbai', 'Sector 5, Mumbai', 'contact@fastelec.com', 19.1100, 72.9000, 'dealerpass1'),
 ('NextGen Mumbai', 'Sector 12, Mumbai', 'contact@nextgenmumbai.com', 19.1150, 72.9050, 'dealerpass2'),
@@ -183,7 +179,6 @@ INSERT INTO WarehouseInventory (CenterID, ProductID, StockQuantity) VALUES
 (4, 4, 15), (4, 5, 30), (4, 6, 10), (4, 7, 0), (4, 8, 20),
 (5, 5, 25), (5, 6, 15), (5, 7, 30), (5, 8, 0), (5, 9, 10);
 
--- Stored Procedures (Converted from Functions)
 DELIMITER //
 
 CREATE PROCEDURE GetStockAvailability(IN product_id INT)
