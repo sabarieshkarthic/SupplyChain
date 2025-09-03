@@ -18,7 +18,7 @@ This is a Flask-based web application for managing a supply chain, allowing deal
 
 - **Geospatial Integration**:
   - Uses `geopy` for address geocoding.
-  - Uses `osmnx` and `networkx` for calculating driving distances between locations.
+  - Uses `A* Algorithm` for calculating driving distances between locations.
 
 - **Database**:
   - MySQL database with stored procedures and triggers for managing orders, shipments, and inventory.
