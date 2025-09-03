@@ -10,12 +10,11 @@ app = Flask(__name__)
 app.secret_key = 'amskPSG'
 app.permanent_session_lifetime = datetime.timedelta(minutes=30)
 
-# Database connection
 db_config = {
     'host': 'localhost',
     'user': 'root',
-    'password': 'amsk',
-    'database': 'scm'
+    'password': 'your_password',
+    'database': 'DB_name'
 }
 
 def get_db_connection():
@@ -23,12 +22,7 @@ def get_db_connection():
 
 
 def calculate_distance(lat1, lon1, lat2, lon2):
-    #R = 6371  # Earth radius in km
-    #dlat = radians(lat2 - lat1)
-    #dlon = radians(lon2 - lon1)
-    #a = sin(dlat/2)**2 + cos(radians(lat1)) * cos(radians(lat2)) * sin(dlon/2)**2
-    #c = 2 * atan2(sqrt(a), sqrt(1-a))
-    #return R * c
+
     G = ox.graph_from_point((lat1, lon1), dist=100000000, network_type='drive')
     start_node = ox.distance.nearest_nodes(G, lon1, lat1)
     end_node = ox.distance.nearest_nodes(G, lon2, lat2)
@@ -46,7 +40,6 @@ def calculate_transportation_cost(distance):
     else:
         return Decimal('20') * distance
 
-# Helper functions
 def get_products_for_dealer():
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -127,7 +120,7 @@ def dealer_login():
         cursor.close()
         conn.close()
         if dealer:
-            session.permanent = True  # Make the session permanent
+            session.permanent = True  
             session['dealer_id'] = dealer[0]
             session['dealer_name'] = dealer[1]
             print("Session set in dealer_login:", session)  
@@ -164,7 +157,6 @@ def dealer_orders():
         products = [row for row in cursor.stored_results()][0].fetchall()
         cursor.callproc('GetShipmentStatus', [order_id, datetime.date.today(), datetime.datetime.now().time()])
         shipment_status = [row for row in cursor.stored_results()][0].fetchone()[0]
-        # Fetch the order status directly
         cursor.execute("SELECT Status FROM Orders WHERE OrderID = %s", (order_id,))
         order_status = cursor.fetchone()[0]
         cursor.execute("""
@@ -202,7 +194,7 @@ def dealer_orders():
 
 @app.route('/dealer/order/<int:order_id>', methods=['POST'])
 def order_details(order_id):
-    print("Session in order_details:", session)  # Debug: Check session contents
+    print("Session in order_details:", session) 
     if 'dealer_id' not in session:
         return redirect(url_for('dealer_login'))
     from werkzeug.datastructures import ImmutableMultiDict
@@ -357,4 +349,5 @@ def restock():
                            message=f"Restocked from Supplier ID {supplier[0]} with transportation cost ${trans_cost:.2f}")
 
 if __name__ == '__main__':
+
     app.run(debug=True)
