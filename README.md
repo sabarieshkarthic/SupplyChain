@@ -6,20 +6,21 @@ A* Algorithm, a tiered transportation pricing model, and optimized order-splitti
 ## Features
 
 - **Dealer Features**:
-  - Signup with geolocation-based address validation.
-  - Login and session management.
-  - View available products with stock and pricing.
-  - Place orders with automatic distribution center assignment based on proximity.
-  - View order history and detailed order status, including shipment tracking.
+  -Secure signup with geolocation-based address validation.
+  -Browse products with real-time stock levels and pricing.
+  -Place multi-item orders, automatically assigned to the nearest distribution center with available inventory.
+  -Track order history, shipment status, and delivery routes.
 
 - **Employee Features**:
-  - Login and session management.
-  - Restock products at distribution centers with transportation cost calculation.
-  - View available products and distribution centers.
+  -Secure login and role-based access.
+  -Manage warehouse inventory and record restocking events.
+  -Calculate transportation costs dynamically based on distance tiers.
+  -View and manage distribution centers and product availability.
 
 - **Geospatial Integration**:
-  - Uses `geopy` for address geocoding.
-  - Uses `A* Algorithm` for calculating driving distances between locations.
+  -Address geocoding powered by `geopy`.
+  -Driving distances and shortest paths computed using the `A* algorithm` on OpenStreetMap road networks.
+  -Order allocation optimized to reduce transportation costs and delivery times.
 
 - **Database**:
   - MySQL database with stored procedures and triggers for managing orders, shipments, and inventory.
@@ -44,24 +45,6 @@ The database (`scm`) includes the following tables:
 
 Stored procedures and triggers handle tasks like adding dealers, retrieving order details, updating shipment status, and managing inventory.
 
-## Usage
-
-1. **Access the Application**:
-   - Open `http://127.0.0.1:5000` in a browser.
-   - Navigate to `/dealer` for dealer options or `/employee/login` for employee access.
-
-2. **Dealer Workflow**:
-   - **Signup**: Provide name, address, contact info, and password at `/dealer/signup`.
-   - **Login**: Use contact info and password at `/dealer/login`.
-   - **Dashboard**: View options at `/dealer/dashboard`.
-   - **Products**: Browse and select products at `/dealer/products`.
-   - **Place Order**: Submit order with quantities; the system assigns distribution centers based on proximity and stock.
-   - **Orders**: View order history and details at `/dealer/orders`.
-
-3. **Employee Workflow**:
-   - **Login**: Use name and password at `/employee/login`.
-   - **Dashboard**: View products and centers at `/employee/dashboard`.
-   - **Restock**: Select product, center, and quantity to restock, with calculated transportation costs.
 
 ## Notes
 
@@ -111,3 +94,23 @@ Stored procedures and triggers handle tasks like adding dealers, retrieving orde
    python app.py
    ```
    The application will run in debug mode at `http://127.0.0.1:5000`.
+
+   
+   ## Usage
+
+1. **Access the Application**:
+   - Open `http://127.0.0.1:5000` in a browser.
+   - Navigate to `/dealer` for dealer options or `/employee/login` for employee access.
+
+2. **Dealer Workflow**:
+   - **Signup**: Provide name, address, contact info, and password at `/dealer/signup`.
+   - **Login**: Use contact info and password at `/dealer/login`.
+   - **Dashboard**: View options at `/dealer/dashboard`.
+   - **Products**: Browse and select products at `/dealer/products`.
+   - **Place Order**: Submit order with quantities; the system assigns distribution centers based on proximity and stock.
+   - **Orders**: View order history and details at `/dealer/orders`.
+
+3. **Employee Workflow**:
+   - **Login**: Use name and password at `/employee/login`.
+   - **Dashboard**: View products and centers at `/employee/dashboard`.
+   - **Restock**: Select product, center, and quantity to restock, with calculated transportation costs.
