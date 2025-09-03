@@ -6,21 +6,21 @@ A* Algorithm, a tiered transportation pricing model, and optimized order-splitti
 ## Features
 
 - **Dealer Features**:
-  -Secure signup with geolocation-based address validation.
-  -Browse products with real-time stock levels and pricing.
-  -Place multi-item orders, automatically assigned to the nearest distribution center with available inventory.
-  -Track order history, shipment status, and delivery routes.
+  - Secure signup with geolocation-based address validation.
+  - Browse products with real-time stock levels and pricing.
+  - Place multi-item orders, automatically assigned to the nearest distribution center with available inventory.
+  - Track order history, shipment status, and delivery routes.
 
 - **Employee Features**:
-  -Secure login and role-based access.
-  -Manage warehouse inventory and record restocking events.
-  -Calculate transportation costs dynamically based on distance tiers.
-  -View and manage distribution centers and product availability.
+  - Secure login and role-based access.
+  - Manage warehouse inventory and record restocking events.
+  - Calculate transportation costs dynamically based on distance tiers.
+  - View and manage distribution centers and product availability.
 
 - **Geospatial Integration**:
-  -Address geocoding powered by `geopy`.
-  -Driving distances and shortest paths computed using the `A* algorithm` on OpenStreetMap road networks.
-  -Order allocation optimized to reduce transportation costs and delivery times.
+  - Address geocoding powered by `geopy`.
+  - Driving distances and shortest paths computed using the `A* algorithm` on OpenStreetMap road networks.
+  - Order allocation optimized to reduce transportation costs and delivery times.
 
 - **Database**:
   - MySQL database with stored procedures and triggers for managing orders, shipments, and inventory.
