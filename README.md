@@ -1,6 +1,6 @@
 # Supply Chain Management System
 
-This is a Flask-based web application for managing a supply chain, allowing dealers to place orders and employees to manage inventory restocking. The application integrates with a MySQL database and uses geospatial data for distance calculations and transportation cost estimation.
+This is a Flask-based web application for managing a supply chain, allowing dealers to place orders and employees to manage inventory restocking. The application integrates with a MySQL database and uses geospatial data for distance calculations and optimizing transportation cost.
 
 ## Features
 
