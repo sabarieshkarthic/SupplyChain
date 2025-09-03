@@ -1,6 +1,7 @@
 # Supply Chain Management System
 
-This is a Flask-based web application for managing a supply chain, allowing dealers to place orders and employees to manage inventory restocking. The application integrates with a MySQL database and uses geospatial data for distance calculations and optimizing transportation cost.
+This is a Flask-based logistics platform enabling dealers to sign up, browse stock, place multi-item orders, and track shipments, while employees manage real-time restocking. Designed a 15-table MySQL schema with stored procedures and triggers to automate inventory, orders, shipments, and delivery routes. Integrated geospatial distance calculations with the 
+A* Algorithm, a tiered transportation pricing model, and optimized order-splitting logic to minimize costs.
 
 ## Features
 
@@ -24,45 +25,7 @@ This is a Flask-based web application for managing a supply chain, allowing deal
   - MySQL database with stored procedures and triggers for managing orders, shipments, and inventory.
   - Supports complex queries for order details and shipment status.
 
-## Prerequisites
 
-- Python 3.8+
-- MySQL Server
-- Required Python libraries (install via `pip`):
-  ```bash
-  pip install flask mysql-connector-python geopy osmnx networkx
-  ```
-
-## Setup Instructions
-
-1. **Clone the Repository**:
-   ```bash
-   git clone <repository_url>
-   cd <repository_directory>
-   ```
-
-2. **Set Up MySQL Database**:
-   - Create a database named `scm` and execute the SQL script provided in the code to create tables, insert sample data, and define stored procedures and triggers.
-   - Update the `db_config` dictionary in the Flask application with your MySQL credentials:
-     ```python
-     db_config = {
-         'host': 'localhost',
-         'user': 'your_username',
-         'password': 'your_password',
-         'database': 'scm'
-     }
-     ```
-
-3. **Install Dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Run the Application**:
-   ```bash
-   python app.py
-   ```
-   The application will run in debug mode at `http://127.0.0.1:5000`.
 
 ## Database Schema
 
@@ -106,11 +69,45 @@ Stored procedures and triggers handle tasks like adding dealers, retrieving orde
   - The application uses OpenStreetMap data via `osmnx` to calculate driving distances, which may require an internet connection.
   - Transportation costs are calculated based on distance: free for <25 km, $12/km for 25-100 km, and $20/km for >100 km.
 
-- **Security**:
-  - Passwords are stored as plain text in the sample database for simplicity. In a production environment, use proper hashing (e.g., `bcrypt`).
-  - Session management uses Flask’s built-in session with a 30-minute timeout.
-
 - **Sample Data**:
   - The database includes sample suppliers, distribution centers, dealers, employees, products, and inventory for testing.
 
+## Prerequisites
 
+- Python 3.8+
+- MySQL Server
+- Required Python libraries (install via `pip`):
+  ```bash
+  pip install flask mysql-connector-python geopy osmnx networkx
+  ```
+
+## Setup Instructions
+
+1. **Clone the Repository**:
+   ```bash
+   git clone <repository_url>
+   cd <repository_directory>
+   ```
+
+2. **Set Up MySQL Database**:
+   - Create a database named `scm` and execute the SQL script provided in the code to create tables, insert sample data, and define stored procedures and triggers.
+   - Update the `db_config` dictionary in the Flask application with your MySQL credentials:
+     ```python
+     db_config = {
+         'host': 'localhost',
+         'user': 'your_username',
+         'password': 'your_password',
+         'database': 'scm'
+     }
+     ```
+
+3. **Install Dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Run the Application**:
+   ```bash
+   python app.py
+   ```
+   The application will run in debug mode at `http://127.0.0.1:5000`.
