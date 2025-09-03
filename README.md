@@ -113,16 +113,4 @@ Stored procedures and triggers handle tasks like adding dealers, retrieving orde
 - **Sample Data**:
   - The database includes sample suppliers, distribution centers, dealers, employees, products, and inventory for testing.
 
-## Limitations
 
-- **Geocoding**: Relies on Nominatim for address validation, which may fail for imprecise addresses.
-- **Scalability**: The current setup is designed for small-scale use. For production, optimize database queries and add caching for geospatial data.
-- **Error Handling**: Basic error messages are implemented; enhance for production use.
-
-## Future Improvements
-
-- Add input validation and sanitization.
-- Implement secure password hashing.
-- Add real-time shipment tracking with maps.
-- Optimize geospatial queries with caching.
-- Add user roles and permissions for finer access control.
